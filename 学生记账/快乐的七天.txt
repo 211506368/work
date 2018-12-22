@@ -1,0 +1,32 @@
+package jisuan;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Storage {
+	public static void main(String args[]) throws IOException{
+		String s;  
+        InputStreamReader isr=new InputStreamReader(System.in);//建立输入流	InputStreamReader 的对象isr
+        BufferedReader br=new BufferedReader(isr);//建立缓冲BufferedReader对象br，关联到isr
+        FileWriter fw=new FileWriter("c:\\leiixng.txt");//创建文件输出 FileWriter类对象fw
+        BufferedWriter bw=new BufferedWriter(fw);//创建带缓冲的BufferedWriter类对象bw，并关联到fw
+        System.out.println("请输入消费类型：（以空行结束输入）");//将读入字符串写入到文件中，
+        while(true){//循环读入字符串
+           System.out.println("输入消费类型： ");
+           System.out.flush();//清空输出缓冲区
+           s = br.readLine();//读入输入的一行
+           if(s.length()==0)break;//若遇到空行则break,结束读写工作
+           bw.write(s);//将本行字符串写出到对象bw
+           bw.newLine();  //在对象bw中创建新行，为下一行输出做准备
+       }
+       br.close();//关闭输出对象
+       bw.close();
+       System.out.println("输入的类型c:\\leixing.txt文件");
+       
+	}
+
+
+}
